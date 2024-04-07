@@ -1,0 +1,22 @@
+version: <docker-compose-version>
+services:
+  database:
+    image: <database-docker-image-name>
+    ports:
+      - "<databasePort>:<databasePort>"
+  environment:
+    POSTGRES_USER: <databaseUser>
+    POSTGRES_PASSWORD: <databasePassword>
+    POSTGRES_DB: <databaseName>
+    PROFILE: <profile-name>
+    DATABASE SERVER_PORT: "<databasePort>"
+    container_name: <container_name>
+  <service-name>:
+    image: <service-docker-image-name>
+    ports:
+      - "<applicationPort>:<applicationPort>"
+  networks:
+    backend:
+    aliases:
+      - "alias"
+    driver: bridge
